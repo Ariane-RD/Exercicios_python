@@ -1,0 +1,33 @@
+#programa vai ler o ano de nascimento de um jovem  e informar
+# de acordo com sua idade:
+# Se ele ainda vai se alistar ao serviço militar
+# Se é a HORA DE SE ALISTAR .
+# Se já puassou do tempo do alistamento.
+# Seu programa também deverá mostrar o tempo que falta ou que passou do prazo
+
+from datetime import date
+print('\033[33m-=-\033[m' * 20)
+print('\033[1;32mALISTAMENTO AO SERVIÇO MILITAR\033[m')
+print('\033[33m-=-\033[m' * 20)
+anonascimento = int(input('\033[1mQual é o seu ano de nascimento?: \033[m'))
+sexo = str(input('\033[1;32mGenero M OU F?\033[m: ')).upper().strip()
+print(sexo)
+ano = date.today().year
+idadep = ano - anonascimento
+palavra = 'anos'
+print('Quem nasceu em {} tem {} anos em {}'.format(anonascimento, idadep, ano))
+if sexo == 'F':
+    print('\033[1;31mVOCÊ NAO PRECISA FAZER ALISTAMENTO MILITAR OBRIGATÓRIO!\033[m')
+elif sexo == 'M':
+    if idadep < 18:
+        menor = 18 - idadep
+        naofoi = ano + menor
+        print('Faltam \033[34m{} ano(s)\033[m para você poder se alistar!'.format(menor))
+        print('Seu alistamento será em {}'.format(naofoi))
+elif idadep > 18:
+    maior = idadep - 18
+    passou = ano - maior
+    print('Se passaram \033[1;31m{} anos \033[m do tempo do alistamento!!!'.format(maior))
+    print('Seu alistamento foi em {} '.format(passou))
+elif idadep == 18:
+    print('\033[1;31mJá está na hora de você se alistar!')
