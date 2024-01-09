@@ -1,5 +1,6 @@
 #Programa joga jokenpô com computador x  usuário
 #REGRAS:PEDRA  ganha de TESOURA;  PAPEL ganha de  PEDRA;  TESOURA ganha de  PAPEL.
+#O projeto é um mini game o qual tem a finalidade de que, o jogador jogue com o computador o jogo chamado Jo Ken Po
 
 import random
 import emoji
