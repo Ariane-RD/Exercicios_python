@@ -1,0 +1,62 @@
+#Programa joga jokenpô com computador x  usuário
+#REGRAS:PEDRA  ganha de TESOURA;  PAPEL ganha de  PEDRA;  TESOURA ganha de  PAPEL.
+
+import random
+import emoji
+import time
+print('\033[1;34m-=-\033[m' * 20)
+print('\033[1;35mESCOLHA A SUA JOGADA!\033[m')
+print(emoji.emojize('\033[1;31m[0]\033[m - \033[1;35mTESOURA\033[m:victory_hand:'))
+print(emoji.emojize('\033[1;31m[1]\033[m- \033[1;35mPAPEL\033[m:raised_back_of_hand:'))
+print(emoji.emojize('\033[1;31m[2]\033[m - \033[1;35mPEDRA\033[m:oncoming_fist:'))
+print('\033[1;34m-=-\033[m' * 20)
+
+escolhajogador = int(input('Digite a sua escolha: '))
+itens = ('TESOURA', 'PAPEL', 'PEDRA')
+escolhapc = random.randint(0, 2)
+print('\033[1;33mJÔ...\033[m')
+time.sleep(1)
+print('\033[1;33mKEN...\033[m')
+time.sleep(1)
+print('\033[1;33mPÔ!\033[m')
+print('\033[1;34m-=-\033[m'*20)
+print('\033[1;36mEscolha da máquina: {}\033[m'.format(itens[escolhapc]))
+print('\033[1;36mEscolha do jogador: {}\033[m'.format(itens[escolhajogador]))
+print('\033[1;34m-=-\033[m'*20)
+
+if escolhapc == 0:#pc jogou TESOURA
+    if escolhajogador == 0:
+        print(emoji.emojize('\033[1;35mTESOURA:victory_hand: x TESOURA:victory_hand:\033[m'))
+        print('\033[1;35mEMPATE!\033[m')
+    elif escolhajogador == 1:
+        print(emoji.emojize('\033[1;35mPAPEL:raised_back_of_hand: x TESOURA:victory_hand:\033[m'))
+        print('\033[1;31mVocê PERDEU!\033[m')
+    elif escolhajogador == 2:
+        print(emoji.emojize('\033[1;35mPEDRA:oncoming_fist: x TESOURA:victory_hand:\033[m'))
+        print('\033[1;35mVocê Venceu!\033[m')
+    else:
+        print('\033[1;31mJOGADA INVÁLIDA, TENTE NOVAMENTE!!!\033[m')
+if escolhapc == 1:#pc jogou PAPEL
+    if escolhajogador == 2:
+        print(emoji.emojize('\033[1;35mPEDRA:oncoming_fist: x PAPEL:raised_back_of_hand:\033[m'))
+        print('\033[1;31mVocê PERDEU!\033[m')
+    elif escolhajogador == 1:
+        print(emoji.emojize('\033[1;35mPAPEL:raised_back_of_hand: x PAPEL:raised_back_of_hand:\033[m'))
+        print('\033[1;35mEMPATE!\033[m')
+    elif escolhajogador == 0:
+        print(emoji.emojize('\033[1;35mTesoura:victory_hand: x Papel:raised_back_of_hand:\033[m'))
+        print('\033[1;34mVocê Venceu!\033[m')
+    else:
+        print('\033[1;31mJOGADA INVÁLIDA, TENTE NOVAMENTE!!!\033[m')
+if escolhapc == 2:#pc jogou PEDRA
+    if escolhajogador == 1:
+        print(emoji.emojize('\033[1;35mPEDRA:oncoming_fist: x PAPEL:raised_back_of_hand:\033[m'))
+        print('\033[1;31mVocê VENCEU!\033[m')
+    elif escolhajogador == 2:
+        print(emoji.emojize('\033[1;35mPEDRA:oncoming_fist: x PEDRA:oncoming_fist:\033[m'))
+        print('\033[1;35mEMPATE!\033[m')
+    elif escolhajogador == 0:
+        print(emoji.emojize('\033[1;35mTESOURA:victory_hand: x PEDRA:oncoming_fist:\033[m'))
+        print('\033[1;31mVocê PERDEU!\033[m')
+    else:
+        print('\033[1;31mJOGADA INVÁLIDA, TENTE NOVAMENTE!!!\033[m')
